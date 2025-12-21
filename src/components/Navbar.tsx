@@ -1,26 +1,73 @@
-import { ChevronRight, Wallet } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
+  const [activeSection, setActiveSection] = useState("home");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ["home", "features", "security", "networks", "docs"];
+      const scrollPosition = window.scrollY + 100;
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const navLinks = [
+    { href: "#home", label: "Home" },
+    { href: "#features", label: "Features" },
+    { href: "#security", label: "Security" },
+    { href: "#networks", label: "Networks" },
+    { href: "#docs", label: "Docs" },
+  ];
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass transition-all duration-300">
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center gap-3 cursor-pointer group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-primary/25">
-              <Wallet className="w-5 h-5 text-white" />
-            </div>
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 text-primary transform group-hover:scale-110 transition-transform duration-300">
+              <circle cx="20" cy="20" r="18" stroke="currentColor" strokeWidth="2" opacity="0.3"></circle>
+              <circle cx="20" cy="20" r="12" stroke="currentColor" strokeWidth="2" opacity="0.5"></circle>
+              <circle cx="20" cy="20" r="6" fill="currentColor"></circle>
+              <path d="M20 2C20 2 32 8 32 20C32 32 20 38 20 38" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.7"></path>
+              <path d="M20 8C20 8 28 12 28 20C28 28 20 32 20 32" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.5"></path>
+            </svg>
             <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/80">Keon Wallet</span>
           </div>
 
           {/* Nav Links */}
           <div className="hidden md:flex items-center gap-8">
-            <a href="#home" className="nav-link">Home</a>
-            <a href="#features" className="nav-link">Features</a>
-            <a href="#security" className="nav-link">Security</a>
-            <a href="#networks" className="nav-link">Networks</a>
-            <a href="#docs" className="nav-link">Docs</a>
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.href.substring(1);
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className={`relative text-sm font-medium transition-colors duration-300 ${isActive ? "text-primary" : "text-muted-foreground hover:text-foreground"
+                    }`}
+                >
+                  {link.label}
+                  {isActive && (
+                    <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full animate-fade-in" />
+                  )}
+                </a>
+              );
+            })}
           </div>
 
           {/* Right Side */}

@@ -1,19 +1,38 @@
 import { ChevronRight, Shield, Zap, Layers } from "lucide-react";
+import { useEffect, useState } from "react";
+import WalletCarousel from "./WalletCarousel";
 
 const HeroSection = () => {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0 hero-gradient" />
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[128px] animate-pulse" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-[128px] animate-pulse delay-1000" />
+      {/* Background Effects with Parallax */}
+      <div className="absolute inset-0 hero-gradient" style={{ transform: `translateY(${scrollY * 0.5}px)` }} />
+      <div
+        className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[128px] animate-pulse"
+        style={{ transform: `translate(${scrollY * 0.3}px, ${scrollY * 0.4}px)` }}
+      />
+      <div
+        className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-[128px] animate-pulse delay-1000"
+        style={{ transform: `translate(${-scrollY * 0.2}px, ${scrollY * 0.3}px)` }}
+      />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="space-y-8 text-center lg:text-left">
             <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm text-sm font-medium hover:bg-white/10 transition-colors cursor-default animate-fade-in">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 backdrop-blur-sm text-sm font-medium hover:bg-white/10 transition-colors cursor-default animate-fade-in">
                 <Shield className="w-4 h-4 text-primary" />
                 <span className="bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">Secure Starknet Wallet</span>
               </div>
@@ -62,21 +81,9 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right Content - Wallet Mockup */}
+          {/* Right Content - 3D Wallet Carousel */}
           <div className="relative flex justify-center lg:justify-end mt-12 lg:mt-0">
-            <div className="relative transform transition-transform duration-700 hover:scale-105">
-              {/* Glow Effect */}
-              <div className="absolute inset-0 bg-primary/30 blur-[100px] rounded-full animate-pulse" />
-
-              {/* Wallet Extension Mockup */}
-              <div className="relative z-20 animate-float">
-                <img
-                  src="/wallet_mockup_dapps.png"
-                  alt="Keon Wallet dApps Interface"
-                  className="w-[340px] h-auto rounded-[2.5rem] shadow-2xl glow-primary"
-                />
-              </div>
-            </div>
+            <WalletCarousel />
           </div>
         </div>
       </div>
