@@ -6,71 +6,93 @@
 
 @layer base {
   :root {
-    --background: 222 47% 6%;
-    --foreground: 0 0% 100%;
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
 
-    --card: 222 47% 8%;
-    --card-foreground: 0 0% 100%;
+    --card: 0 0% 98%;
+    --card-foreground: 222 47% 11%;
 
-    --popover: 222 47% 8%;
-    --popover-foreground: 0 0% 100%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
 
-    --primary: 152 100% 50%;
-    --primary-foreground: 222 47% 6%;
+    --primary: 263 70% 50%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 222 30% 12%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 222 47% 11%;
 
-    --muted: 222 30% 15%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
 
-    --accent: 152 76% 45%;
-    --accent-foreground: 222 47% 6%;
+    --accent: 263 70% 60%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 222 30% 18%;
-    --input: 222 30% 18%;
-    --ring: 152 100% 50%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 263 70% 50%;
 
     --radius: 0.75rem;
 
-    --sidebar-background: 222 47% 6%;
-    --sidebar-foreground: 0 0% 100%;
-    --sidebar-primary: 152 100% 50%;
-    --sidebar-primary-foreground: 222 47% 6%;
-    --sidebar-accent: 222 30% 12%;
-    --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 222 30% 18%;
-    --sidebar-ring: 152 100% 50%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-primary: 263 70% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 96%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 263 70% 50%;
 
     /* Custom tokens */
-    --glow-primary: 152 100% 50%;
-    --gradient-start: 152 76% 40%;
-    --gradient-end: 160 84% 35%;
+    --glow-primary: 263 70% 50%;
+    --gradient-start: 263 70% 50%;
+    --gradient-end: 280 70% 60%;
   }
 
   .dark {
     --background: 222 47% 6%;
     --foreground: 0 0% 100%;
+
     --card: 222 47% 8%;
     --card-foreground: 0 0% 100%;
+
     --popover: 222 47% 8%;
     --popover-foreground: 0 0% 100%;
-    --primary: 152 100% 50%;
-    --primary-foreground: 222 47% 6%;
+
+    --primary: 263 70% 55%;
+    --primary-foreground: 0 0% 100%;
+
     --secondary: 222 30% 12%;
     --secondary-foreground: 0 0% 100%;
+
     --muted: 222 30% 15%;
     --muted-foreground: 215 20% 65%;
-    --accent: 152 76% 45%;
-    --accent-foreground: 222 47% 6%;
+
+    --accent: 263 70% 60%;
+    --accent-foreground: 0 0% 100%;
+
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
+
     --border: 222 30% 18%;
     --input: 222 30% 18%;
-    --ring: 152 100% 50%;
+    --ring: 263 70% 55%;
+
+    --sidebar-background: 222 47% 6%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 263 70% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 222 30% 12%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 222 30% 18%;
+    --sidebar-ring: 263 70% 55%;
+
+    /* Custom tokens */
+    --glow-primary: 263 70% 55%;
+    --gradient-start: 263 70% 50%;
+    --gradient-end: 280 70% 60%;
   }
 }
 
@@ -100,13 +122,13 @@
   }
 
   .glass {
-    @apply bg-card/50 backdrop-blur-xl border border-border/50;
+    @apply bg-background/80 backdrop-blur-xl;
   }
 
   .card-gradient {
     background: linear-gradient(180deg, 
       hsl(var(--card)) 0%, 
-      hsl(222 47% 5%) 100%
+      hsl(var(--background)) 100%
     );
   }
 
@@ -142,11 +164,11 @@
   }
 
   .feature-card {
-    @apply relative p-6 rounded-2xl bg-gradient-to-b from-secondary/80 to-secondary/40 border border-border/50 transition-all duration-300 hover:border-primary/30 hover:glow-card;
+    @apply relative p-6 rounded-2xl bg-gradient-to-b from-card to-card/80 border border-border transition-all duration-300 hover:border-primary/30 hover:glow-card;
   }
 
   .pricing-card {
-    @apply relative p-8 rounded-2xl bg-gradient-to-b from-secondary/60 to-card border border-border transition-all duration-300;
+    @apply relative p-8 rounded-2xl bg-gradient-to-b from-card to-background border border-border transition-all duration-300;
   }
 
   .pricing-card-featured {
@@ -154,7 +176,7 @@
   }
 
   .chain-card {
-    @apply flex flex-col items-center gap-2 p-4 rounded-xl bg-secondary/50 border border-border/30;
+    @apply flex flex-col items-center gap-2 p-4 rounded-xl bg-card border border-border;
   }
 
   .nav-link {

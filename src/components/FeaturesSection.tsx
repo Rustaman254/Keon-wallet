@@ -1,25 +1,45 @@
-import { Layers, Shield, Zap, Settings2 } from "lucide-react";
+import { Shield, Zap, Eye, Wallet, Send, Bell, Key, Settings } from "lucide-react";
 
 const features = [
   {
-    icon: Layers,
-    title: "Multichain Support",
-    description: "Mine across 25+ blockchain networks simultaneously with automatic chain switching for maximum profitability."
+    icon: Eye,
+    title: "Transaction Simulation",
+    description: "Preview exactly what will happen before you sign. See balance changes, detect approvals, and get warned about potential reverts."
+  },
+  {
+    icon: Wallet,
+    title: "Multi-Account Support",
+    description: "Create and manage multiple accounts from a single seed phrase. Custom naming and quick switching between accounts."
   },
   {
     icon: Shield,
-    title: "Enterprise Security",
-    description: "Military-grade encryption and multi-layer security protocols protect your mining operations 24/7."
+    title: "Advanced Security",
+    description: "Encrypted seed phrase storage, auto-lock protection, and password-protected access to keep your assets safe."
+  },
+  {
+    icon: Send,
+    title: "Token Management",
+    description: "View all your ERC20 tokens, add custom tokens by contract address, and easily hide tokens you don't want to see."
   },
   {
     icon: Zap,
-    title: "Lightning Fast",
-    description: "Optimized mining algorithms deliver superior hash rates with minimal latency across all supported chains."
+    title: "dApp Connectivity",
+    description: "Seamlessly connect to any Starknet dApp. Approve transactions, sign messages, and manage connected applications."
   },
   {
-    icon: Settings2,
-    title: "Auto-Optimization",
-    description: "AI-powered algorithms automatically switch between chains to maximize your mining rewards in real-time."
+    icon: Bell,
+    title: "Notifications",
+    description: "Stay informed with real-time notifications for transactions, contract deployments, and important wallet events."
+  },
+  {
+    icon: Key,
+    title: "Seed Phrase Recovery",
+    description: "Import existing wallets or create new ones. Your seed phrase is encrypted at rest and backed up securely."
+  },
+  {
+    icon: Settings,
+    title: "Customizable Settings",
+    description: "Light/dark theme, currency preferences, auto-lock timeout, and developer mode for advanced users."
   }
 ];
 
@@ -32,11 +52,11 @@ const FeaturesSection = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Why MultichainMine?
+            Everything You Need
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Built for miners who demand the best. Our platform combines cutting-edge 
-            technology with user-friendly tools to maximize your mining potential.
+            Keon Wallet combines powerful features with an intuitive interface, 
+            giving you complete control over your Starknet assets.
           </p>
         </div>
 
@@ -46,16 +66,15 @@ const FeaturesSection = () => {
             <div 
               key={index}
               className="feature-card group"
-              style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Icon Container */}
               <div className="mb-6">
-                <div className="w-full aspect-video rounded-xl bg-gradient-to-br from-secondary to-card border border-border/30 flex items-center justify-center relative overflow-hidden group-hover:border-primary/30 transition-colors">
+                <div className="w-full aspect-video rounded-xl bg-gradient-to-br from-secondary to-card border border-border flex items-center justify-center relative overflow-hidden group-hover:border-primary/30 transition-colors">
                   {/* Decorative Elements */}
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="grid grid-cols-3 gap-2 opacity-30">
+                    <div className="grid grid-cols-3 gap-2 opacity-20">
                       {[...Array(6)].map((_, i) => (
-                        <div key={i} className="w-8 h-8 rounded-lg bg-border/50" />
+                        <div key={i} className="w-8 h-8 rounded-lg bg-border" />
                       ))}
                     </div>
                   </div>

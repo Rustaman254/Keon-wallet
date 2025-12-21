@@ -1,53 +1,25 @@
-import { Check, ChevronRight } from "lucide-react";
+import { Check, ChevronRight, Sparkles } from "lucide-react";
 
-const plans = [
+const roadmapItems = [
   {
-    name: "Starter",
-    price: "$49",
-    period: "/month",
-    description: "Perfect for individual miners getting started.",
-    features: [
-      "Mine up to 3 chains",
-      "5 TH/s hash power",
-      "Basic analytics dashboard",
-      "Email support",
-      "99.5% uptime guarantee"
-    ],
-    featured: false,
-    cta: "Get Started"
+    status: "completed",
+    title: "Core Wallet",
+    features: ["Account management", "Token balances", "Send & receive", "Network switching"]
   },
   {
-    name: "Professional",
-    price: "$149",
-    period: "/month",
-    description: "Ideal for serious miners seeking more power.",
-    features: [
-      "Mine up to 10 chains",
-      "25 TH/s hash power",
-      "Advanced analytics & reporting",
-      "Priority support",
-      "99.9% uptime guarantee",
-      "Auto chain-switching"
-    ],
-    featured: true,
-    cta: "Get Started"
+    status: "completed",
+    title: "Transaction Simulation",
+    features: ["Balance previews", "Approval detection", "Revert warnings", "Fee estimation"]
   },
   {
-    name: "Enterprise",
-    price: "Custom",
-    period: "",
-    description: "For large-scale mining operations.",
-    features: [
-      "Unlimited chains",
-      "Custom hash power",
-      "White-label dashboard",
-      "99.99% uptime SLA",
-      "99.9% uptime guarantee",
-      "API access",
-      "Custom integrations"
-    ],
-    featured: false,
-    cta: "Contact Sales"
+    status: "completed",
+    title: "dApp Integration",
+    features: ["Connect requests", "Transaction signing", "Message signing", "Typed data (SNIP-12)"]
+  },
+  {
+    status: "planned",
+    title: "Coming Soon",
+    features: ["Built-in DEX swap", "NFT support", "Hardware wallet", "WalletConnect v2"]
   }
 ];
 
@@ -60,62 +32,67 @@ const PricingSection = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Clear Pricing
+            Roadmap & Features
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Choose the perfect plan for your mining needs. All plans 
-            include our core features and can be upgraded anytime.
+            Keon Wallet is free and open source. Here's what we've built 
+            and what's coming next.
           </p>
         </div>
 
-        {/* Pricing Cards */}
-        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {plans.map((plan, index) => (
+        {/* Roadmap Cards */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          {roadmapItems.map((item, index) => (
             <div 
               key={index}
-              className={plan.featured ? "pricing-card-featured" : "pricing-card"}
+              className={item.status === "planned" ? "pricing-card-featured" : "pricing-card"}
             >
-              {/* Plan Label */}
+              {/* Status Badge */}
               <div className="mb-6">
-                <span className="text-sm font-mono text-muted-foreground">[ {plan.name} ]</span>
+                <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium ${
+                  item.status === "completed" 
+                    ? "bg-primary/10 text-primary" 
+                    : "bg-amber-500/10 text-amber-500"
+                }`}>
+                  {item.status === "completed" ? (
+                    <Check className="w-3 h-3" />
+                  ) : (
+                    <Sparkles className="w-3 h-3" />
+                  )}
+                  {item.status === "completed" ? "Completed" : "In Progress"}
+                </span>
               </div>
 
-              {/* Price */}
-              <div className="mb-4">
-                <span className="text-4xl font-bold text-primary">{plan.price}</span>
-                <span className="text-muted-foreground">{plan.period}</span>
-              </div>
-
-              {/* Description */}
-              <p className="text-muted-foreground mb-8">
-                {plan.description}
-              </p>
+              {/* Title */}
+              <h3 className="text-xl font-bold mb-4">{item.title}</h3>
 
               {/* Features */}
-              <ul className="space-y-4 mb-8">
-                {plan.features.map((feature, fIndex) => (
+              <ul className="space-y-3">
+                {item.features.map((feature, fIndex) => (
                   <li key={fIndex} className="flex items-center gap-3">
-                    <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
-                      <Check className="w-3 h-3 text-primary" />
+                    <div className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 ${
+                      item.status === "completed" 
+                        ? "bg-primary/20" 
+                        : "bg-muted"
+                    }`}>
+                      <Check className={`w-3 h-3 ${
+                        item.status === "completed" ? "text-primary" : "text-muted-foreground"
+                      }`} />
                     </div>
                     <span className="text-sm text-muted-foreground">{feature}</span>
                   </li>
                 ))}
               </ul>
-
-              {/* CTA Button */}
-              <button 
-                className={`w-full py-3 px-6 rounded-full font-medium transition-all duration-300 flex items-center justify-center gap-2 ${
-                  plan.featured 
-                    ? "bg-primary text-primary-foreground hover:shadow-lg hover:shadow-primary/30" 
-                    : "border border-border hover:border-primary/50 text-foreground"
-                }`}
-              >
-                {plan.cta}
-                <ChevronRight className="w-4 h-4" />
-              </button>
             </div>
           ))}
+        </div>
+
+        {/* CTA */}
+        <div className="text-center mt-12">
+          <button className="btn-primary">
+            View Full Roadmap
+            <ChevronRight className="w-5 h-5" />
+          </button>
         </div>
       </div>
     </section>
