@@ -40,13 +40,13 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${isScrolled ? 'mx-4 mt-4' : 'mx-0 mt-0'
-      }`}>
-      <div className={`transition-all duration-500 ease-in-out ${isScrolled
-        ? 'rounded-full backdrop-blur-xl bg-background/80 border border-white/10 shadow-lg'
-        : 'rounded-none bg-transparent border-transparent'
+    <nav className="fixed top-0 left-0 right-0 z-50">
+      <div className={`container mx-auto transition-all duration-500 ease-in-out ${isScrolled ? 'px-6 pt-4' : 'px-0 pt-0'
         }`}>
-        <div className="container mx-auto px-6 py-4">
+        <div className={`transition-all duration-500 ease-in-out ${isScrolled
+          ? 'rounded-full backdrop-blur-xl bg-background/80 border border-white/10 shadow-lg px-6 py-4'
+          : 'rounded-none bg-transparent border-transparent px-6 py-4'
+          }`}>
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div className="flex items-center gap-3 cursor-pointer group">
