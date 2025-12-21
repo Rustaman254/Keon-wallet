@@ -32,15 +32,15 @@ const WalletCarousel = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // Cylinder radius - larger for better spacing
-    const radius = 500;
+    // Compact cylinder radius for smaller 3D effect
+    const radius = 200;
 
     return (
-        <div className="relative w-full h-[700px] flex items-center justify-center">
-            {/* 3D Carousel Container - Cylinder Layout */}
-            <div className="relative" style={{ perspective: '2000px', perspectiveOrigin: 'center' }}>
+        <div className="relative w-full h-[380px] flex items-center justify-center">
+            {/* 3D Carousel Container - Compact Cylinder Layout */}
+            <div className="relative" style={{ perspective: '1000px', perspectiveOrigin: 'center' }}>
                 <div
-                    className="relative w-[320px] h-[640px] transition-transform duration-700 ease-out"
+                    className="relative w-[190px] h-[380px] transition-transform duration-700 ease-out"
                     style={{
                         transformStyle: 'preserve-3d',
                         transform: `rotateY(${rotation}deg)`
@@ -75,7 +75,7 @@ const WalletCarousel = () => {
 
                                 {/* Label - Only show for active card */}
                                 {isActive && (
-                                    <div className="absolute -bottom-16 left-1/2 -translate-x-1/2 whitespace-nowrap">
+                                    <div className="absolute -bottom-14 left-1/2 -translate-x-1/2 whitespace-nowrap">
                                         <span className="text-sm font-bold text-primary animate-fade-in">
                                             {screen.label}
                                         </span>
@@ -88,7 +88,7 @@ const WalletCarousel = () => {
             </div>
 
             {/* Scroll Indicator */}
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-fade-in">
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-fade-in">
                 <span className="text-xs text-muted-foreground">Scroll to explore</span>
                 <div className="flex gap-2">
                     {walletScreens.map((_, index) => (
