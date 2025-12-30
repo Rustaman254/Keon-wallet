@@ -79,30 +79,30 @@ const HowToUse = () => {
         <section
             ref={sectionRef}
             id="how-to-use"
-            className="relative h-[300vh]"
+            className="relative h-[200vh] md:h-[300vh]"
         >
             <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden">
-                <div className="container mx-auto px-6">
+                <div className="container mx-auto px-4 md:px-6">
                     {/* Section Header */}
-                    <div className="max-w-3xl mx-auto text-center mb-12 lg:mb-20">
-                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
-                            <Zap className="w-4 h-4" />
+                    <div className="max-w-3xl mx-auto text-center mb-8 md:mb-12 lg:mb-20">
+                        <div className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-primary/10 text-primary text-xs md:text-sm font-medium mb-4 md:mb-6">
+                            <Zap className="w-3 h-3 md:w-4 md:h-4" />
                             <span>Getting Started</span>
                         </div>
-                        <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
                             How to Use <span className="text-gradient">Keon Wallet</span>
                         </h2>
-                        <p className="text-muted-foreground text-xl">
+                        <p className="text-muted-foreground text-base md:text-lg lg:text-xl px-2">
                             Get started in minutes with our simple setup process
                         </p>
                     </div>
 
                     {/* Two Column Layout - Vertically Centered */}
-                    <div className="grid lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
+                    <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center max-w-7xl mx-auto">
                         {/* Left: Steps - Vertically Centered with Dots on Left */}
-                        <div className="relative flex items-center min-h-[400px]">
+                        <div className="relative flex items-center min-h-[300px] md:min-h-[400px] order-2 lg:order-1">
                             {/* Step Indicators - On the Left */}
-                            <div className="absolute left-0 flex flex-col gap-4 z-10">
+                            <div className="absolute left-0 flex flex-col gap-3 md:gap-4 z-10">
                                 {steps.map((_, index) => (
                                     <button
                                         key={index}
@@ -110,8 +110,8 @@ const HowToUse = () => {
                                             // Optional: Scroll to that position if we wanted to support clicking
                                             // For now we just keep the visual indicator logic or let it be purely display
                                         }}
-                                        className={`w-3 h-3 rounded-full transition-all duration-300 ${index === activeStep
-                                                ? 'bg-primary scale-125 ring-4 ring-primary/20'
+                                        className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-300 ${index === activeStep
+                                                ? 'bg-primary scale-125 ring-2 md:ring-4 ring-primary/20'
                                                 : 'bg-white/20'
                                             }`}
                                         disabled // Disable clicking as it's scroll driven primarily now
@@ -121,7 +121,7 @@ const HowToUse = () => {
                             </div>
 
                             {/* Steps Content - Only Active Visible */}
-                            <div className="flex-1 ml-12">
+                            <div className="flex-1 ml-8 md:ml-12">
                                 {steps.map((step, index) => {
                                     const Icon = step.icon;
                                     const isActive = index === activeStep;
@@ -129,38 +129,38 @@ const HowToUse = () => {
                                     return (
                                         <div
                                             key={index}
-                                            className={`absolute inset-0 ml-12 transition-all duration-500 flex items-center ${isActive
+                                            className={`absolute inset-0 ml-8 md:ml-12 transition-all duration-500 flex items-center ${isActive
                                                     ? 'opacity-100 translate-x-0'
                                                     : 'opacity-0 pointer-events-none translate-x-8'
                                                 }`}
                                         >
                                             <div className="w-full">
-                                                <div className="flex gap-6 items-start">
+                                                <div className="flex gap-4 md:gap-6 items-start">
                                                     {/* Number Circle - Highlighted */}
-                                                    <div className="flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center font-bold text-2xl bg-gradient-to-br from-primary to-accent text-white shadow-lg shadow-primary/30 ring-4 ring-primary/20">
+                                                    <div className="flex-shrink-0 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center font-bold text-xl md:text-2xl bg-gradient-to-br from-primary to-accent text-white shadow-lg shadow-primary/30 ring-2 md:ring-4 ring-primary/20">
                                                         {index + 1}
                                                     </div>
 
                                                     {/* Content */}
                                                     <div className="flex-1">
-                                                        <div className="flex items-center gap-3 mb-4">
-                                                            <Icon className="w-7 h-7 text-primary" />
-                                                            <h3 className="text-3xl font-bold text-foreground">
+                                                        <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-4">
+                                                            <Icon className="w-5 h-5 md:w-7 md:h-7 text-primary" />
+                                                            <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-foreground">
                                                                 {step.title}
                                                             </h3>
                                                         </div>
-                                                        <p className="text-muted-foreground text-lg leading-relaxed">
+                                                        <p className="text-muted-foreground text-sm md:text-base lg:text-lg leading-relaxed">
                                                             {step.description}
                                                         </p>
                                                     </div>
                                                 </div>
 
                                                 {/* Progress Bar */}
-                                                <div className="mt-8 flex items-center gap-2">
+                                                <div className="mt-6 md:mt-8 flex items-center gap-1.5 md:gap-2">
                                                     {steps.map((_, i) => (
                                                         <div
                                                             key={i}
-                                                            className={`h-1 rounded-full transition-all duration-300 ${i <= activeStep ? 'bg-primary flex-1' : 'bg-white/10 w-8'
+                                                            className={`h-0.5 md:h-1 rounded-full transition-all duration-300 ${i <= activeStep ? 'bg-primary flex-1' : 'bg-white/10 w-6 md:w-8'
                                                                 }`}
                                                         />
                                                     ))}
@@ -173,10 +173,10 @@ const HowToUse = () => {
                         </div>
 
                         {/* Right: Image - Clean Presentation, Vertically Centered */}
-                        <div className="flex items-center justify-center">
-                            <div className="relative mx-auto w-full max-w-[280px]">
+                        <div className="flex items-center justify-center order-1 lg:order-2">
+                            <div className="relative mx-auto w-full max-w-[200px] md:max-w-[280px]">
                                 {/* Phone Mockup - Clean, No Background Card */}
-                                <div className="relative aspect-[9/16] rounded-3xl overflow-hidden shadow-2xl shadow-black/40">
+                                <div className="relative aspect-[9/16] rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl shadow-black/40">
                                     <img
                                         src={steps[activeStep].image}
                                         alt={steps[activeStep].title}
@@ -185,8 +185,8 @@ const HowToUse = () => {
                                 </div>
 
                                 {/* Step Indicator */}
-                                <div className="mt-6 text-center">
-                                    <span className="text-sm text-muted-foreground">
+                                <div className="mt-4 md:mt-6 text-center">
+                                    <span className="text-xs md:text-sm text-muted-foreground">
                                         Step {activeStep + 1} of {steps.length}
                                     </span>
                                 </div>

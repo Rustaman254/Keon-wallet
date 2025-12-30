@@ -233,15 +233,15 @@
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-[hsl(var(--gradient-start))] to-[hsl(var(--gradient-end))] text-white font-semibold rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 hover:scale-105 active:scale-95;
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm md:px-8 md:py-4 md:text-base bg-gradient-to-r from-[hsl(var(--gradient-start))] to-[hsl(var(--gradient-end))] text-white font-semibold rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 hover:scale-105 active:scale-95;
   }
 
   .btn-outline {
-    @apply inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-white/20 bg-transparent backdrop-blur-sm text-foreground font-medium rounded-full transition-all duration-300 hover:bg-white/5 hover:border-white/30 active:scale-95;
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm md:px-8 md:py-4 md:text-base border-2 border-white/20 bg-transparent backdrop-blur-sm text-foreground font-medium rounded-full transition-all duration-300 hover:bg-white/5 hover:border-white/30 active:scale-95;
   }
 
   .feature-card {
-    @apply relative p-8 rounded-3xl glass-card transition-all duration-500 hover:glow-card hover:-translate-y-1;
+    @apply relative p-6 md:p-8 rounded-3xl glass-card transition-all duration-500 hover:glow-card hover:-translate-y-1;
     background-color: rgba(255, 255, 255, 0.08);
   }
 
@@ -250,7 +250,7 @@
   }
 
   .pricing-card {
-    @apply relative p-10 rounded-3xl glass-card transition-all duration-300;
+    @apply relative p-6 md:p-10 rounded-3xl glass-card transition-all duration-300;
     background-color: rgba(255, 255, 255, 0.08);
   }
 
@@ -263,7 +263,7 @@
   }
 
   .chain-card {
-    @apply flex flex-col items-center gap-3 p-6 rounded-2xl glass-card transition-all duration-300 hover:scale-105 cursor-pointer;
+    @apply flex flex-col items-center gap-2 md:gap-3 p-4 md:p-6 rounded-2xl glass-card transition-all duration-300 hover:scale-105 cursor-pointer;
     background-color: rgba(255, 255, 255, 0.08);
   }
 
