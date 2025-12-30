@@ -61,51 +61,51 @@ const features = [
 
 const FeaturesSection = () => {
   return (
-    <section id="features" className="relative py-32 overflow-hidden">
+    <section id="features" className="relative py-16 md:py-32 overflow-hidden">
       <div className="absolute inset-0 section-gradient opacity-50" />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
-            <Zap className="w-4 h-4" />
+        <div className="max-w-3xl mx-auto text-center mb-10 md:mb-20">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-primary/10 text-primary text-xs md:text-sm font-medium mb-4 md:mb-6">
+            <Zap className="w-3 h-3 md:w-4 md:h-4" />
             <span>Powerful Capabilities</span>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 md:mb-6 tracking-tight">
             Everything You Need to <br />
             <span className="text-gradient">Master Starknet</span>
           </h2>
-          <p className="text-muted-foreground text-xl leading-relaxed">
+          <p className="text-muted-foreground text-base md:text-lg lg:text-xl leading-relaxed px-2">
             Keon Wallet combines robust security with an intuitive interface,
             giving you complete control over your digital assets.
           </p>
         </div>
 
         {/* Features Grid - No Borders */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="group relative p-6 rounded-2xl backdrop-blur-md transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl animate-slide-up"
+              className="group relative p-4 md:p-6 rounded-xl md:rounded-2xl backdrop-blur-md transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl animate-slide-up"
               style={{
                 animationDelay: `${index * 100}ms`,
                 background: `linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))`
               }}
             >
               {/* Gradient Overlay - No Border */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl`} />
+              <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl md:rounded-2xl`} />
 
               {/* Icon */}
-              <div className="mb-6 relative z-10">
-                <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${feature.iconBg} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-500`}>
-                  <feature.icon className="w-7 h-7 text-white" />
+              <div className="mb-3 md:mb-6 relative z-10">
+                <div className={`w-10 h-10 md:w-14 md:h-14 rounded-lg md:rounded-xl bg-gradient-to-br ${feature.iconBg} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-500`}>
+                  <feature.icon className="w-5 h-5 md:w-7 md:h-7 text-white" />
                 </div>
               </div>
 
               {/* Content */}
               <div className="relative z-10">
-                <h3 className="text-lg font-bold mb-2 group-hover:text-primary transition-colors duration-300">{feature.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
+                <h3 className="text-sm md:text-lg font-bold mb-1 md:mb-2 group-hover:text-primary transition-colors duration-300">{feature.title}</h3>
+                <p className="text-muted-foreground text-xs md:text-sm leading-relaxed line-clamp-3 md:line-clamp-none">
                   {feature.description}
                 </p>
               </div>

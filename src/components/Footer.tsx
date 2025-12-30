@@ -23,30 +23,30 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative py-20 border-t border-white/10 bg-background">
-      <div className="container mx-auto px-6">
-        <div className="grid grid-cols-2 md:grid-cols-12 gap-12 md:gap-8 mb-16">
+    <footer className="relative py-12 md:py-20 border-t border-white/10 bg-background">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="grid grid-cols-2 md:grid-cols-12 gap-8 md:gap-8 mb-10 md:mb-16">
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-4">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg shadow-primary/25">
-                <Wallet className="w-5 h-5 text-white" />
+            <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
+              <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg shadow-primary/25">
+                <Wallet className="w-4 h-4 md:w-5 md:h-5 text-white" />
               </div>
-              <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/80">Keon Wallet</span>
+              <span className="text-lg md:text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/80">Keon Wallet</span>
             </div>
-            <p className="text-muted-foreground leading-relaxed mb-8 max-w-sm">
+            <p className="text-muted-foreground leading-relaxed mb-6 md:mb-8 max-w-sm text-sm md:text-base">
               The most advanced Starknet wallet designed for the next generation of
               users and developers. Secure, seamless, and open source.
             </p>
             {/* Social Links */}
-            <div className="flex gap-4">
+            <div className="flex gap-3 md:gap-4">
               {[Twitter, Github, Linkedin].map((Icon, index) => (
                 <a
                   key={index}
                   href="#"
-                  className="w-10 h-10 rounded-xl bg-secondary hover:bg-primary/10 border border-white/5 flex items-center justify-center text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110"
+                  className="w-9 h-9 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-secondary hover:bg-primary/10 border border-white/5 flex items-center justify-center text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110"
                 >
-                  <Icon className="w-5 h-5" />
+                  <Icon className="w-4 h-4 md:w-5 md:h-5" />
                 </a>
               ))}
             </div>
@@ -54,11 +54,11 @@ const Footer = () => {
 
           {/* Product Links */}
           <div className="md:col-start-6 md:col-span-2">
-            <h4 className="font-bold mb-6 text-foreground">Product</h4>
-            <ul className="space-y-4">
+            <h4 className="font-bold mb-4 md:mb-6 text-foreground text-sm md:text-base">Product</h4>
+            <ul className="space-y-3 md:space-y-4">
               {footerLinks.product.map((link, index) => (
                 <li key={index}>
-                  <a href={link.href} className="text-muted-foreground hover:text-primary transition-colors font-medium">
+                  <a href={link.href} className="text-muted-foreground hover:text-primary transition-colors font-medium text-sm md:text-base">
                     {link.name}
                   </a>
                 </li>
@@ -68,11 +68,11 @@ const Footer = () => {
 
           {/* Resources Links */}
           <div className="md:col-span-2">
-            <h4 className="font-bold mb-6 text-foreground">Resources</h4>
-            <ul className="space-y-4">
+            <h4 className="font-bold mb-4 md:mb-6 text-foreground text-sm md:text-base">Resources</h4>
+            <ul className="space-y-3 md:space-y-4">
               {footerLinks.resources.map((link, index) => (
                 <li key={index}>
-                  <a href={link.href} className="text-muted-foreground hover:text-primary transition-colors font-medium">
+                  <a href={link.href} className="text-muted-foreground hover:text-primary transition-colors font-medium text-sm md:text-base">
                     {link.name}
                   </a>
                 </li>
@@ -82,11 +82,11 @@ const Footer = () => {
 
           {/* Community Links */}
           <div className="md:col-span-2">
-            <h4 className="font-bold mb-6 text-foreground">Community</h4>
-            <ul className="space-y-4">
+            <h4 className="font-bold mb-4 md:mb-6 text-foreground text-sm md:text-base">Community</h4>
+            <ul className="space-y-3 md:space-y-4">
               {footerLinks.community.map((link, index) => (
                 <li key={index}>
-                  <a href={link.href} className="text-muted-foreground hover:text-primary transition-colors font-medium">
+                  <a href={link.href} className="text-muted-foreground hover:text-primary transition-colors font-medium text-sm md:text-base">
                     {link.name}
                   </a>
                 </li>
@@ -96,15 +96,15 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-sm text-muted-foreground font-medium">
+        <div className="pt-6 md:pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6">
+          <p className="text-xs md:text-sm text-muted-foreground font-medium text-center md:text-left">
             © 2025 Keon Wallet. Open source under MIT License.
           </p>
-          <div className="flex gap-8">
-            <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors font-medium">
+          <div className="flex gap-6 md:gap-8">
+            <a href="#" className="text-xs md:text-sm text-muted-foreground hover:text-foreground transition-colors font-medium">
               Privacy Policy
             </a>
-            <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors font-medium">
+            <a href="#" className="text-xs md:text-sm text-muted-foreground hover:text-foreground transition-colors font-medium">
               Terms of Service
             </a>
           </div>

@@ -65,20 +65,20 @@ const Testimonials = () => {
     }, []);
 
     return (
-        <section className="relative py-32 overflow-hidden">
+        <section className="relative py-16 md:py-32 overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
 
-            <div className="container mx-auto px-6 relative z-10">
+            <div className="container mx-auto px-4 md:px-6 relative z-10">
                 {/* Section Header */}
-                <div className="max-w-3xl mx-auto text-center mb-16">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
-                        <Quote className="w-4 h-4" />
+                <div className="max-w-3xl mx-auto text-center mb-10 md:mb-16">
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-primary/10 text-primary text-xs md:text-sm font-medium mb-4 md:mb-6">
+                        <Quote className="w-3 h-3 md:w-4 md:h-4" />
                         <span>Testimonials</span>
                     </div>
-                    <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
                         Loved by <span className="text-gradient">Thousands</span>
                     </h2>
-                    <p className="text-muted-foreground text-xl">
+                    <p className="text-muted-foreground text-base md:text-lg lg:text-xl px-2">
                         See what our community has to say about Keon Wallet
                     </p>
                 </div>
@@ -86,32 +86,32 @@ const Testimonials = () => {
                 {/* Scrolling Testimonials */}
                 <div className="relative">
                     {/* Gradient Overlays */}
-                    <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-                    <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+                    <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+                    <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
 
                     {/* Testimonials Track */}
                     <div
                         ref={scrollRef}
-                        className="flex gap-6 overflow-x-hidden pb-4"
+                        className="flex gap-4 md:gap-6 overflow-x-hidden pb-4"
                         style={{ scrollBehavior: 'auto' }}
                     >
                         {/* Duplicate testimonials for infinite scroll effect */}
                         {[...testimonials, ...testimonials].map((testimonial, index) => (
                             <div
                                 key={index}
-                                className="flex-shrink-0 w-[400px] p-8 rounded-2xl backdrop-blur-md bg-gradient-to-br from-white/5 to-white/2 hover:from-white/10 hover:to-white/5 transition-all duration-300"
+                                className="flex-shrink-0 w-[280px] md:w-[400px] p-5 md:p-8 rounded-xl md:rounded-2xl backdrop-blur-md bg-gradient-to-br from-white/5 to-white/2 hover:from-white/10 hover:to-white/5 transition-all duration-300"
                             >
-                                <Quote className="w-10 h-10 text-primary/30 mb-4" />
-                                <p className="text-lg mb-6 leading-relaxed">{testimonial.quote}</p>
-                                <div className="flex items-center gap-4">
+                                <Quote className="w-7 h-7 md:w-10 md:h-10 text-primary/30 mb-3 md:mb-4" />
+                                <p className="text-sm md:text-lg mb-4 md:mb-6 leading-relaxed line-clamp-4 md:line-clamp-none">{testimonial.quote}</p>
+                                <div className="flex items-center gap-3 md:gap-4">
                                     <img
                                         src={testimonial.avatar}
                                         alt={testimonial.name}
-                                        className="w-12 h-12 rounded-full bg-primary/10"
+                                        className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary/10"
                                     />
                                     <div>
-                                        <h4 className="font-bold">{testimonial.name}</h4>
-                                        <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                                        <h4 className="font-bold text-sm md:text-base">{testimonial.name}</h4>
+                                        <p className="text-xs md:text-sm text-muted-foreground">{testimonial.role}</p>
                                     </div>
                                 </div>
                             </div>
