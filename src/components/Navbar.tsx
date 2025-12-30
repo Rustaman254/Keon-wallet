@@ -1,17 +1,17 @@
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, X } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState("home");
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       const sections = ["home", "features", "security", "networks", "docs"];
       const scrollPosition = window.scrollY + 100;
 
-      // Check if scrolled past top (more than 100px)
       setIsScrolled(window.scrollY > 100);
 
       for (const section of sections) {
@@ -27,9 +27,18 @@ const Navbar = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Check initial state
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Close mobile menu when clicking outside or scrolling
+  useEffect(() => {
+    const handleClose = () => setIsMobileMenuOpen(false);
+    if (isMobileMenuOpen) {
+      window.addEventListener("scroll", handleClose);
+      return () => window.removeEventListener("scroll", handleClose);
+    }
+  }, [isMobileMenuOpen]);
 
   const navLinks = [
     { href: "#home", label: "Home" },
@@ -38,6 +47,14 @@ const Navbar = () => {
     { href: "#networks", label: "Networks" },
     { href: "#docs", label: "Docs" },
   ];
+
+  const handleNavClick = (href: string) => {
+    setIsMobileMenuOpen(false);
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50">
@@ -60,7 +77,7 @@ const Navbar = () => {
               <span className="text-lg md:text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/80">Keon Wallet</span>
             </div>
 
-            {/* Nav Links */}
+            {/* Nav Links - Desktop */}
             <div className="hidden md:flex items-center gap-8">
               {navLinks.map((link) => {
                 const isActive = activeSection === link.href.substring(1);
@@ -80,7 +97,7 @@ const Navbar = () => {
               })}
             </div>
 
-            {/* Right Side */}
+            {/* Right Side - Desktop */}
             <div className="hidden md:flex items-center gap-4">
               <ThemeToggle />
               <button className="btn-primary py-2 px-4 md:py-2.5 md:px-6 text-sm">
@@ -89,17 +106,54 @@ const Navbar = () => {
               </button>
             </div>
 
-            {/* Mobile Menu */}
+            {/* Mobile Menu Button */}
             <div className="flex md:hidden items-center gap-3">
               <ThemeToggle />
-              <button className="text-foreground hover:text-primary transition-colors p-1">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
+              <button 
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="text-foreground hover:text-primary transition-colors p-1"
+              >
+                {isMobileMenuOpen ? (
+                  <X className="w-5 h-5" />
+                ) : (
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                )}
               </button>
             </div>
           </div>
         </div>
+
+        {/* Mobile Dropdown Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden mt-2 mx-4 rounded-2xl backdrop-blur-xl bg-background/95 border border-border/50 shadow-lg overflow-hidden animate-fade-in">
+            <div className="py-3">
+              {navLinks.map((link) => {
+                const isActive = activeSection === link.href.substring(1);
+                return (
+                  <button
+                    key={link.href}
+                    onClick={() => handleNavClick(link.href)}
+                    className={`w-full text-left px-5 py-3 text-sm font-medium transition-colors duration-200 ${
+                      isActive 
+                        ? "text-primary bg-primary/10" 
+                        : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                    }`}
+                  >
+                    {link.label}
+                  </button>
+                );
+              })}
+              <div className="px-4 pt-3 pb-1 border-t border-border/50 mt-2">
+                <button className="btn-primary w-full py-2.5 text-sm justify-center">
+                  Install Extension
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );
