@@ -81,8 +81,8 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right Content - 3D Wallet Carousel */}
-          <div className="relative flex justify-center lg:justify-end mt-8 lg:mt-0">
+          {/* Right Content - 3D Wallet Carousel (Hidden on Mobile) */}
+          <div className="hidden lg:flex relative justify-center lg:justify-end mt-8 lg:mt-0">
             <WalletCarousel />
           </div>
         </div>
