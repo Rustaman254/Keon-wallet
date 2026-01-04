@@ -1,73 +1,72 @@
-# Welcome to your Lovable project
+# Keon Wallet - Your Gateway to Starknet
 
-## Project info
+![Keon Wallet Logo](public/logo.png)
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+Keon Wallet is a modern, secure, and user-friendly Starknet wallet designed for the next generation of decentralized applications. It provides advanced transaction simulation, seamless dApp connectivity, and a premium user experience.
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+-   **Advanced Transaction Simulation**: Understand exactly what will happen before you sign a transaction.
+-   **Seamless dApp Connectivity**: Connect to your favorite Starknet dApps with ease.
+-   **Secure by Design**: Built with security as a priority, ensuring your assets are always safe.
+-   **Multi-Network Support**: Support for Starknet Mainnet, Testnet, and custom networks.
+-   **Modern UI/UX**: A beautiful, responsive interface with dark mode support.
+-   **Open Source**: Fully open-source and community-driven.
 
-**Use Lovable**
+## Tech Stack
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+-   **Frontend**: [React](https://reactjs.org/) with [TypeScript](https://www.typescriptlang.org/)
+-   **Build Tool**: [Vite](https://vitejs.dev/)
+-   **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+-   **UI Components**: [shadcn/ui](https://ui.shadcn.com/)
+-   **Icons**: [Lucide React](https://lucide.dev/)
 
-Changes made via Lovable will be committed automatically to this repo.
+## Getting Started
 
-**Use your preferred IDE**
+### Prerequisites
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+-   [Node.js](https://nodejs.org/) (v18 or later)
+-   [pnpm](https://pnpm.io/) (recommended) or npm/yarn
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Installation
 
-Follow these steps:
+1.  **Clone the repository**:
+    ```sh
+    git clone https://github.com/Cycle-Stark/Keon-wallet.git
+    cd Keon-wallet
+    ```
+
+2.  **Install dependencies**:
+    ```sh
+    pnpm install
+    # or
+    npm install
+    ```
+
+3.  **Start the development server**:
+    ```sh
+    pnpm run dev
+    # or
+    npm run dev
+    ```
+
+4.  **Open the app**:
+    Navigate to `http://localhost:5173` in your browser.
+
+## Deployment
+
+To build the project for production:
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+pnpm run build
 ```
 
-**Edit a file directly in GitHub**
+The output will be in the `dist` directory, ready to be deployed to any static hosting service.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## License
 
-**Use GitHub Codespaces**
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+---
 
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Built with ❤️ by the Keon Wallet Team.
