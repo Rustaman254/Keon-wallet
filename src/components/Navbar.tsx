@@ -66,15 +66,8 @@ const Navbar = () => {
           }`}>
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <div className="flex items-center gap-2 md:gap-3 cursor-pointer group">
-              <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 md:w-10 md:h-10 text-primary transform group-hover:scale-110 transition-transform duration-300">
-                <circle cx="20" cy="20" r="18" stroke="currentColor" strokeWidth="2" opacity="0.3"></circle>
-                <circle cx="20" cy="20" r="12" stroke="currentColor" strokeWidth="2" opacity="0.5"></circle>
-                <circle cx="20" cy="20" r="6" fill="currentColor"></circle>
-                <path d="M20 2C20 2 32 8 32 20C32 32 20 38 20 38" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.7"></path>
-                <path d="M20 8C20 8 28 12 28 20C28 28 20 32 20 32" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.5"></path>
-              </svg>
-              <span className="text-lg md:text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/80">Keon Wallet</span>
+            <div className="flex items-center cursor-pointer group">
+              <img src="/logo.png" alt="Keon Wallet Logo" className="h-8 md:h-10 w-auto transform group-hover:scale-105 transition-transform duration-300" />
             </div>
 
             {/* Nav Links - Desktop */}

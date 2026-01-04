@@ -28,11 +28,8 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-12 gap-8 md:gap-8 mb-10 md:mb-16">
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-4">
-            <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
-              <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg shadow-primary/25">
-                <Wallet className="w-4 h-4 md:w-5 md:h-5 text-white" />
-              </div>
-              <span className="text-lg md:text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/80">Keon Wallet</span>
+            <div className="flex items-center mb-4 md:mb-6">
+              <img src="/logo.png" alt="Keon Wallet Logo" className="h-8 md:h-10 w-auto" />
             </div>
             <p className="text-muted-foreground leading-relaxed mb-6 md:mb-8 max-w-sm text-sm md:text-base">
               The most advanced Starknet wallet designed for the next generation of
